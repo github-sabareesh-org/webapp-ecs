@@ -1,13 +1,13 @@
 {
-    "taskDefinitionArn": "arn:aws:ecs:us-east-1:774305598386:task-definition/vproapp-act-tdef:1",
+    "taskDefinitionArn": "arn:aws:ecs:us-east-1:774305598386:task-definition/Webapp-ecs-td:2",
     "containerDefinitions": [
         {
-            "name": "vproapp",
-            "image": "774305598386.dkr.ecr.us-east-1.amazonaws.com/actapp",
+            "name": "Webapp-container",
+            "image": "774305598386.dkr.ecr.us-east-1.amazonaws.com/webappecr",
             "cpu": 0,
             "portMappings": [
                 {
-                    "name": "vproapp-8080",
+                    "name": "webapp-port",
                     "containerPort": 8080,
                     "hostPort": 8080,
                     "protocol": "tcp",
@@ -23,7 +23,7 @@
             "logConfiguration": {
                 "logDriver": "awslogs",
                 "options": {
-                    "awslogs-group": "/ecs/vproapp-act-tdef",
+                    "awslogs-group": "/ecs/Webapp-ecs-td",
                     "mode": "non-blocking",
                     "awslogs-create-group": "true",
                     "max-buffer-size": "25m",
@@ -35,10 +35,10 @@
             "systemControls": []
         }
     ],
-    "family": "vproapp-act-tdef",
+    "family": "Webapp-ecs-td",
     "executionRoleArn": "arn:aws:iam::774305598386:role/ecsTaskExecutionRole",
     "networkMode": "bridge",
-    "revision": 1,
+    "revision": 2,
     "volumes": [],
     "status": "ACTIVE",
     "requiresAttributes": [
@@ -75,12 +75,12 @@
         "EC2"
     ],
     "cpu": "1024",
-    "memory": "1024",
+    "memory": "512",
     "runtimePlatform": {
         "cpuArchitecture": "X86_64",
         "operatingSystemFamily": "LINUX"
     },
-    "registeredAt": "2025-02-08T15:45:09.822Z",
+    "registeredAt": "2025-02-13T06:43:37.772Z",
     "registeredBy": "arn:aws:iam::774305598386:root",
     "enableFaultInjection": false,
     "tags": []
