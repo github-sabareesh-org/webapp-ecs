@@ -1,0 +1,17 @@
+name: ecs-web-app-workflow
+on: workflow_dispatch
+jobs:
+    Testing:
+        runs-on: ubuntu-latest
+        steps:
+            # Checkout the repo
+            - name: Code Checkout
+              uses: actions/checkout@v4
+            
+            # maven and Checkstyletest
+            - name: maven test
+              run: mvn test
+            - name: Checkstyle
+              run: mvn checkstyle:checkstyle
+              
+              
